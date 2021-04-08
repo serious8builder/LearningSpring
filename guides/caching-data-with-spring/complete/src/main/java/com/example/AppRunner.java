@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.caching.Book;
 import com.example.caching.BookRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,8 +24,11 @@ public class AppRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         logger.info(".... Fetching books");
-        logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
-        logger.info("isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
+        Book book = bookRepository.getByIsbn("isbn-1234");
+        book.setTitle("New Some book");
+        logger.info("isbn-1234 -->" + book);
+        book = bookRepository.getByIsbn("isbn-4567");
+        logger.info("isbn-4567 -->" + book);
         logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
         logger.info("isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
         logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));

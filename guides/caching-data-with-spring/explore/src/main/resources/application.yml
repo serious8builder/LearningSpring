@@ -1,0 +1,20 @@
+#  spring.cache.type=redis
+#    spring.redis.host=localhost
+#    spring.redis.port=6379
+#    spring.redis.database=11
+#    spring.cache.cache-names=user
+#    spring.cache.redis.key-prefix=api
+#    spring.cache.redis.use-key-prefix=true
+#    spring.cache.redis.time-to-live=10000
+#    spring.cache.simple.user.time-to-live=3000
+
+spring:
+  redis:
+    database: 11
+  redis2:
+    database: 12
+
+  cache:
+    type: redis
+    cache.redis1.key-profix: "cache::"
+    cache.redis1.use-key-preefix: true
